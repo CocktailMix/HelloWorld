@@ -13,7 +13,7 @@
    und die Farbe ändert sich überall auf der Seite.
    Farben werden als Hex-Code geschrieben: # + Rot, Grün, Blau.        */
 :root {
-  --farbe-hintergrund: #ff0000;   /* Seitenhintergrund */
+  --farbe-hintergrund: #f3f6f6;   /* Seitenhintergrund */
   --farbe-flaeche:     #ffffff;   /* Hintergrund von Kästen */
   --farbe-text:        #17242b;   /* normaler Text */
   --farbe-text-leise:  #4f5f68;   /* Nebentext */
