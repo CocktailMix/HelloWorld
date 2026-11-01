@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="See zwischen Hügeln">
+  <rect width="800" height="600" fill="#e4eef0"/>
+  <circle cx="200" cy="150" r="46" fill="#f2b84b"/>
+  <path d="M0 330 Q200 230 400 320 T800 300 V600 H0 Z" fill="#7aa38f"/>
+  <path d="M0 360 Q240 300 480 360 T800 350 V600 H0 Z" fill="#4f7f6a"/>
+  <rect x="0" y="400" width="800" height="200" fill="#5e98ad"/>
+  <g stroke="#a9d0dc" stroke-width="6" stroke-linecap="round">
+    <line x1="120" y1="450" x2="260" y2="450"/>
+    <line x1="420" y1="480" x2="600" y2="480"/>
+    <line x1="220" y1="520" x2="340" y2="520"/>
+    <line x1="560" y1="550" x2="700" y2="550"/>
+  </g>
+</svg>

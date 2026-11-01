@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Nadelwald unter dem Abendhimmel">
+  <defs>
+    <linearGradient id="abend" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3c98b"/>
+      <stop offset="1" stop-color="#f6e7d2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#abend)"/>
+  <rect x="0" y="470" width="800" height="130" fill="#2f4f3f"/>
+  <g fill="#3f6b55">
+    <polygon points="60,480 120,250 180,480"/>
+    <polygon points="240,480 310,200 380,480"/>
+    <polygon points="440,480 500,270 560,480"/>
+    <polygon points="610,480 680,220 750,480"/>
+  </g>
+  <g fill="#2a4a3a">
+    <polygon points="150,520 200,330 250,520"/>
+    <polygon points="360,520 420,300 480,520"/>
+    <polygon points="540,520 590,350 640,520"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Berglandschaft mit Sonne">
+  <defs>
+    <linearGradient id="himmel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bcdbe4"/>
+      <stop offset="1" stop-color="#eef5f3"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#himmel)"/>
+  <circle cx="880" cy="190" r="74" fill="#f2b84b"/>
+  <polygon points="0,470 180,300 330,410 520,210 700,380 860,270 1050,400 1200,320 1200,700 0,700" fill="#7fa6b2"/>
+  <polygon points="520,210 470,258 500,250 522,272 548,246 580,262" fill="#ffffff"/>
+  <polygon points="860,270 826,302 852,298 870,316 892,296 908,306" fill="#ffffff"/>
+  <polygon points="0,560 140,430 300,520 460,380 640,520 800,430 980,540 1200,440 1200,700 0,700" fill="#4d7b8b"/>
+  <polygon points="460,380 428,410 452,406 470,424 492,402 512,414" fill="#eaf2f2"/>
+  <polygon points="0,640 220,560 420,620 640,550 880,630 1060,580 1200,610 1200,700 0,700" fill="#2c5466"/>
+</svg>

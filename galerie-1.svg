@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Berggipfel mit Schnee">
+  <rect width="800" height="600" fill="#d7e8ee"/>
+  <polygon points="0,600 0,430 150,250 260,360 400,140 560,340 650,250 800,390 800,600" fill="#5f8d9c"/>
+  <polygon points="400,140 352,200 384,190 404,214 430,186 458,202" fill="#ffffff"/>
+  <polygon points="150,250 118,290 142,284 160,302 180,282 196,292" fill="#ffffff"/>
+  <polygon points="650,250 624,282 646,278 662,294 680,276 692,284" fill="#ffffff"/>
+  <polygon points="0,600 0,500 200,420 380,500 560,430 800,520 800,600" fill="#33606f"/>
+</svg>

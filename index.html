@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--
+  index.html – die Startseite.
+  Der Browser lädt diese Datei immer zuerst. Alles andere (style.css, die Bilder)
+  holt er danach, weil es hier drin verlangt wird.
+
+  Kommentare wie dieser hier sieht nur, wer den Code liest – Besucher nicht.
+-->
+<html lang="de">
+<head>
+  <!-- Zeichensatz: damit Umlaute wie ä, ö, ü richtig angezeigt werden -->
+  <meta charset="utf-8">
+
+  <!-- Sorgt dafür, dass die Seite auf dem Handy nicht winzig dargestellt wird -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Titel im Browser-Tab und in Suchergebnissen -->
+  <title>Mein Website-Labor</title>
+  <meta name="description" content="Meine erste eigene Website – ein Übungsprojekt mit HTML und CSS.">
+
+  <!-- Hier wird das Aussehen eingebunden. Der Browser lädt style.css als eigene Datei. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ========== KOPFZEILE mit Navigation ========== -->
+  <header class="kopf">
+    <a class="logo" href="#start">Website-Labor</a>
+    <!-- Ein Link mit # springt zu dem Abschnitt mit dieser id weiter unten -->
+    <nav aria-label="Hauptmenü">
+      <a href="#ablauf">Ablauf</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#video">Video</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== EINSTIEG ========== -->
+    <section id="start" class="einstieg">
+      <div class="einstieg-text">
+        <p class="vorzeile">Übungsprojekt · Version 1</p>
+
+        <!-- ÜBUNG 1: Ändere den Text zwischen <h1> und </h1> und veröffentliche die Änderung. -->
+        <h1>Hallo, Internet!</h1>
+
+        <p class="einleitung">
+          Das ist meine erste eigene Website. Ich habe sie mit HTML und CSS gebaut.
+          Sie liegt bei GitHub und wird von GitHub Pages ausgeliefert.
+        </p>
+        <a class="knopf" href="#ablauf">So kommt die Seite zu dir</a>
+      </div>
+
+      <!--
+        Ein Bild einbinden: src = Dateiname, alt = Beschreibung für Menschen,
+        die das Bild nicht sehen können (und für Suchmaschinen).
+        width und height verhindern, dass die Seite beim Laden "springt".
+      -->
+      <img class="einstieg-bild" src="titelbild.svg"
+           alt="Gezeichnete Berglandschaft mit Sonne" width="1200" height="700">
+    </section>
+
+    <!-- ========== ABLAUF: wie diese Seite zu dir kommt ========== -->
+    <section id="ablauf" class="abschnitt">
+      <h2>So kommt diese Seite zu dir</h2>
+      <!-- <ol> ist eine nummerierte Liste, jedes <li> ein Eintrag -->
+      <ol class="schritte">
+        <li>
+          <strong>Schreiben</strong>
+          Die Seite besteht aus einfachen Textdateien: HTML für den Inhalt, CSS für das Aussehen.
+        </li>
+        <li>
+          <strong>Speichern</strong>
+          Die Dateien liegen in einem Repository bei GitHub. Jede Änderung ist dort eine eigene Version.
+        </li>
+        <li>
+          <strong>Veröffentlichen</strong>
+          GitHub Pages macht nach jeder Änderung aus dem Repository die fertige Website.
+        </li>
+        <li>
+          <strong>Aufrufen</strong>
+          Dein Browser fragt beim DNS nach der Adresse und lädt dann die Dateien von GitHub.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ========== GALERIE ========== -->
+    <section id="galerie" class="abschnitt">
+      <h2>Galerie</h2>
+      <p class="leise">
+        Die Bilder sind Platzhalter. Ersetze sie durch eigene Fotos.
+      </p>
+
+      <!--
+        ÜBUNG 2: Eigenes Foto einsetzen
+        1. Foto (am besten unter 500 KB) als z. B. "urlaub.jpg" ins Repository hochladen.
+        2. Unten bei src="galerie-1.svg" den Namen auf src="urlaub.jpg" ändern.
+        3. Den alt-Text so anpassen, dass er beschreibt, was auf dem Foto zu sehen ist.
+        loading="lazy" heißt: Der Browser lädt das Bild erst, wenn man in seine Nähe scrollt.
+      -->
+      <div class="galerie">
+        <figure>
+          <img src="galerie-1.svg" alt="Gezeichnete Berggipfel mit Schnee" width="800" height="600" loading="lazy">
+          <figcaption>Berge</figcaption>
+        </figure>
+        <figure>
+          <img src="galerie-2.svg" alt="Gezeichneter See zwischen Hügeln" width="800" height="600" loading="lazy">
+          <figcaption>See</figcaption>
+        </figure>
+        <figure>
+          <img src="galerie-3.svg" alt="Gezeichneter Nadelwald unter dem Abendhimmel" width="800" height="600" loading="lazy">
+          <figcaption>Wald</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== VIDEO mit Zwei-Klick-Lösung ========== -->
+    <section id="video" class="abschnitt">
+      <h2>Video</h2>
+      <p class="leise">
+        Das Video wird erst geladen, wenn du auf den Knopf klickst. Vorher fließen keine Daten zu YouTube.
+      </p>
+
+      <!--
+        ÜBUNG 3: Video einbinden
+        Trag zwischen den Anführungszeichen bei data-video-id die ID eines YouTube-Videos ein.
+        Bei https://www.youtube.com/watch?v=abc123 ist die ID: abc123
+        Das kleine Skript ganz unten in dieser Datei erledigt den Rest.
+      -->
+      <div class="video" data-video-id="">
+        <button type="button" class="knopf" id="video-knopf">Video laden</button>
+        <p class="video-hinweis" id="video-hinweis">
+          Mit dem Klick wird ein Video von YouTube geladen. Dabei erhält YouTube deine IP-Adresse.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== KONTAKT ========== -->
+    <section id="kontakt" class="abschnitt">
+      <h2>Kontakt</h2>
+      <p>
+        Ein Kontaktformular kommt in der nächsten Lektion. Eine statische Seite kann ein
+        Formular zwar anzeigen, zum Verschicken der Nachricht braucht sie aber einen Zusatzdienst.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ========== FUSSZEILE ========== -->
+  <footer class="fuss">
+    <p>Übungsprojekt · gebaut mit HTML und CSS · 2026</p>
+  </footer>
+
+  <!--
+    ========== SKRIPT für das Video ==========
+    JavaScript läuft im Browser des Besuchers, nicht auf dem Server.
+    Es baut den YouTube-Player erst nach dem Klick in die Seite ein.
+  -->
+  <script>
+    const videoBox = document.querySelector('.video');
+    const videoKnopf = document.getElementById('video-knopf');
+    const videoHinweis = document.getElementById('video-hinweis');
+
+    videoKnopf.addEventListener('click', function () {
+      const videoId = videoBox.dataset.videoId.trim();
+
+      // Noch keine ID eingetragen? Dann einen Hinweis zeigen und nichts laden.
+      if (videoId === '') {
+        videoHinweis.textContent =
+          'Noch keine Video-ID eingetragen. Trag sie in index.html bei data-video-id ein (Übung 3).';
+        return;
+      }
+
+      // Den Player von youtube-nocookie.com einsetzen (setzt erst beim Abspielen Cookies).
+      const player = document.createElement('iframe');
+      player.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1';
+      player.title = 'YouTube-Video';
+      player.allow = 'autoplay; encrypted-media; picture-in-picture';
+      player.allowFullscreen = true;
+      videoBox.replaceChildren(player);
+    });
+  </script>
+
+</body>
+</html>

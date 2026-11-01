@@ -1,0 +1,236 @@
+/*
+  style.css – das Aussehen der Seite.
+  index.html sagt WAS auf der Seite steht, diese Datei sagt WIE es aussieht.
+
+  Aufbau einer Regel:
+    auswahl { eigenschaft: wert; }
+  Beispiel: h1 { color: red; } färbt alle Hauptüberschriften rot.
+*/
+
+
+/* ========== ÜBUNG: FARBEN UND SCHRIFT ==========
+   Alle Farben stehen hier an einer Stelle. Ändere einen Wert,
+   und die Farbe ändert sich überall auf der Seite.
+   Farben werden als Hex-Code geschrieben: # + Rot, Grün, Blau.        */
+:root {
+  --farbe-hintergrund: #f3f6f6;   /* Seitenhintergrund */
+  --farbe-flaeche:     #ffffff;   /* Hintergrund von Kästen */
+  --farbe-text:        #17242b;   /* normaler Text */
+  --farbe-text-leise:  #4f5f68;   /* Nebentext */
+  --farbe-akzent:      #1d6a85;   /* Knöpfe und Links */
+  --farbe-akzent-text: #ffffff;   /* Schrift auf Knöpfen */
+  --farbe-linie:       #d3dddf;   /* Rahmen und Trennlinien */
+
+  /* Systemschriften: Sie sind auf jedem Gerät schon vorhanden.
+     Es wird nichts von fremden Servern (z. B. Google Fonts) geladen – gut für den Datenschutz. */
+  --schrift: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --inhaltsbreite: 1040px;        /* maximale Breite des Inhalts */
+  --abstand: 24px;                /* Grundabstand */
+  --ecken: 12px;                  /* Rundung von Ecken */
+}
+
+/* Dunkelmodus: Ist am Gerät der dunkle Modus eingestellt, gelten diese Farben. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --farbe-hintergrund: #11191e;
+    --farbe-flaeche:     #18232a;
+    --farbe-text:        #e4ecee;
+    --farbe-text-leise:  #a3b3ba;
+    --farbe-akzent:      #6cc0dc;
+    --farbe-akzent-text: #0f171b;
+    --farbe-linie:       #2b3a42;
+  }
+}
+
+
+/* ========== GRUNDEINSTELLUNGEN ========== */
+
+/* Breiten inklusive Rahmen und Innenabstand berechnen – macht Layouts einfacher */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }   /* sanftes Scrollen bei Klick auf Menülinks */
+
+body {
+  margin: 0;
+  background: var(--farbe-hintergrund);
+  color: var(--farbe-text);
+  font-family: var(--schrift);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; }   /* Bilder nie breiter als ihr Platz */
+
+a { color: var(--farbe-akzent); }
+
+h1, h2 { line-height: 1.15; margin: 0 0 16px; text-wrap: balance; }
+h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); letter-spacing: -0.02em; }   /* clamp = wächst mit der Bildschirmbreite */
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); letter-spacing: -0.01em; }
+p  { margin: 0 0 16px; max-width: 62ch; }   /* ch = Zeichenbreite: angenehme Zeilenlänge */
+
+.leise { color: var(--farbe-text-leise); }
+
+
+/* ========== KOPFZEILE ========== */
+.kopf {
+  position: sticky;            /* bleibt beim Scrollen oben stehen */
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 14px max(var(--abstand), calc((100% - var(--inhaltsbreite)) / 2));
+  background: var(--farbe-hintergrund);
+  border-bottom: 1px solid var(--farbe-linie);
+}
+.logo { font-weight: 700; text-decoration: none; color: var(--farbe-text); }
+.kopf nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.kopf nav a { color: var(--farbe-text-leise); text-decoration: none; }
+.kopf nav a:hover { color: var(--farbe-akzent); }
+
+
+/* ========== INHALT ALLGEMEIN ========== */
+main {
+  max-width: var(--inhaltsbreite);
+  margin: 0 auto;
+  padding: 0 var(--abstand);
+}
+.abschnitt {
+  padding: 56px 0;
+  border-top: 1px solid var(--farbe-linie);
+  scroll-margin-top: 64px;     /* Platz für die feste Kopfzeile beim Anspringen */
+}
+
+
+/* ========== EINSTIEG ========== */
+.einstieg {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;   /* zwei Spalten: Text links, Bild rechts */
+  align-items: center;
+  gap: 40px;
+  padding: 56px 0;
+}
+.vorzeile {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--farbe-text-leise);
+  margin-bottom: 8px;
+}
+.einleitung { font-size: 1.15rem; }
+.einstieg-bild { border-radius: var(--ecken); }
+
+
+/* ========== KNOPF ========== */
+.knopf {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--farbe-akzent);
+  color: var(--farbe-akzent-text);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.knopf:hover { filter: brightness(1.1); }
+.knopf:focus-visible, a:focus-visible { outline: 3px solid var(--farbe-akzent); outline-offset: 3px; }
+
+
+/* ========== ABLAUF-SCHRITTE ========== */
+.schritte {
+  list-style: none;
+  counter-reset: schritt;      /* eigener Zähler für die Nummern */
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.schritte li {
+  counter-increment: schritt;
+  background: var(--farbe-flaeche);
+  border: 1px solid var(--farbe-linie);
+  border-radius: var(--ecken);
+  padding: 20px;
+  color: var(--farbe-text-leise);
+  font-size: 0.95rem;
+}
+.schritte li::before {         /* die Nummer vor jedem Schritt */
+  content: counter(schritt);
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--farbe-akzent);
+  margin-bottom: 8px;
+}
+.schritte strong { display: block; color: var(--farbe-text); font-size: 1.05rem; margin-bottom: 4px; }
+
+
+/* ========== GALERIE ========== */
+.galerie {
+  display: grid;
+  /* so viele Spalten wie passen, jede mindestens 220px breit */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.galerie figure { margin: 0; }
+.galerie img {
+  border-radius: var(--ecken);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;           /* Fotos füllen die Fläche, ohne verzerrt zu werden */
+  width: 100%;
+}
+.galerie figcaption { margin-top: 8px; color: var(--farbe-text-leise); font-size: 0.95rem; }
+
+
+/* ========== VIDEO ========== */
+.video {
+  aspect-ratio: 16 / 9;        /* typisches Videoformat */
+  max-width: 760px;
+  margin-top: 24px;
+  border: 2px dashed var(--farbe-linie);
+  border-radius: var(--ecken);
+  background: var(--farbe-flaeche);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: var(--abstand);
+  text-align: center;
+  overflow: hidden;
+}
+.video-hinweis { font-size: 0.9rem; color: var(--farbe-text-leise); margin: 0; }
+.video iframe { width: 100%; height: 100%; border: 0; }
+.video:has(iframe) { padding: 0; border-style: solid; }   /* sobald das Video da ist: ohne Rand */
+
+
+/* ========== FUSSZEILE ========== */
+.fuss {
+  border-top: 1px solid var(--farbe-linie);
+  padding: 24px var(--abstand) 40px;
+  text-align: center;
+  color: var(--farbe-text-leise);
+  font-size: 0.9rem;
+}
+.fuss p { margin: 0 auto; }
+
+
+/* ========== HANDY UND TABLET ==========
+   Diese Regeln gelten nur, wenn der Bildschirm schmaler ist als angegeben.
+   So passt sich die Seite an (man nennt das "responsive").               */
+@media (max-width: 860px) {
+  .einstieg { grid-template-columns: 1fr; padding-top: 32px; }   /* Bild unter den Text */
+  .schritte { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .schritte { grid-template-columns: 1fr; }
+  .abschnitt { padding: 40px 0; }
+}
